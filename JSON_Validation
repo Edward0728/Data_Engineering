@@ -1,5 +1,28 @@
 import json
 
+# Specify the path to your JSON file
+json_file_path = 'path_to_your_file.json'
+
+try:
+    # Open and read the JSON file
+    with open(json_file_path, 'r') as json_file:
+        # Load the JSON data from the file
+        data = json.load(json_file)
+        
+        # Now 'data' contains the content of the JSON file as a Python dictionary
+        print("JSON file loaded successfully.")
+        
+        # You can access and work with the data as needed
+        print("Contents of the JSON file:")
+        print(data)
+        
+except FileNotFoundError:
+    print(f"Error: The file '{json_file_path}' was not found.")
+except json.JSONDecodeError as e:
+    print(f"Error: JSON decoding failed - {e}")
+except Exception as e:
+    print(f"Error: An unexpected error occurred - {e}")
+
 def validate_json(json_data):
     try:
         # Attempt to parse the JSON data
