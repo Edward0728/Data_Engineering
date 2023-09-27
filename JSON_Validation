@@ -1,0 +1,32 @@
+import json
+
+def validate_json(json_data):
+    try:
+        # Attempt to parse the JSON data
+        parsed_json = json.loads(json_data)
+        
+        # Define your validation rules here
+        # For example, check if certain keys are present and have specific types
+        if 'name' in parsed_json and isinstance(parsed_json['name'], str):
+            print("Validation Passed: 'name' key is present and has a string value.")
+        else:
+            print("Validation Failed: 'name' key is missing or doesn't have a string value.")
+        
+        # Add more validation rules as needed
+        
+    except json.JSONDecodeError as e:
+        print(f"Validation Failed: JSON parsing error - {e}")
+    except Exception as e:
+        print(f"Validation Failed: An error occurred - {e}")
+
+# JSON data to validate
+json_data = '''
+{
+    "name": "John Doe",
+    "age": 30,
+    "email": "johndoe@example.com"
+}
+'''
+
+# Call the validation function
+validate_json(json_data)
